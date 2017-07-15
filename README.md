@@ -22,48 +22,17 @@ $ npm start
 
 ```
 
-## 从头开始创建app
-
-```
-$ sudo npm i -g xr-tools
-$ xr-tools app -i helloWorld
-$ cd helloWorld
-$ xr-tools app -c -s helloWorld
-$ npm install
-$ npm start
-浏览器访问127.0.0.1:8089
-
-```
-
-## 创建有嵌套关系的app(example例子是用这种方式创建的)
-```
-$ sudo npm i -g xr-tools
-$ xr-tools app -i demo
-$ cd demo/src
-$ mkdir apps
-$ cd apps
-$ xr-tools app -i about
-$ xr-tools app -i helloWorld
-$ cd ../..
-$ xr-tools app -c -s demo
-$ 修改src目录下的component.js,action.js,reducer.js可以参考example
-$ npm install
-$ npm start
-浏览器访问127.0.0.1:8089
-
-```
-
 ## API
 
 ```
-npm install xr-app-loader --save
+npm install mk-app-loader --save
 ```
 
 属性 | 说明 | 类型
 -----|-----|-----
-AppLoader | app包路径 | ReactNode
-config| 配置，主要配置有使用的app | object
-start| 启动， 入口参数(targetDomId:目标domid, middlewares:redux中间件, startAppName:开始启动的app名)
+AppLoader | app名 | ReactNode
+config| 配置，{apps:"多个应用对象",middlewares:"redux中间件数组",actionInjections:'action注入',reducerInjections:'reducer注入',targetDomId:'render目标dom', startAppName:'入口app名'} | function
+start| 启动 | function
 
 
 ### AppLoader组件属性
@@ -79,14 +48,14 @@ name | app名 | string
 -----|-----|-----
 action文件中export的所有方法 | component可以通过this.props.action方法名(),调用action文件中export的所有方法 | function
 payload | 当前应用的状态 | immutable Map
-appSource | 当前app path，如：apps/helloworld?a=1 | string
-appPath | 当前app path,不包括'?'后字符串，如：apps/helloworld | string
-appQuery | 当前app path中'?'后字符串，如：a=1 | string
+appName | 当前app名,如helloWorld | string
+appFullName | 当前app全名包括query，如：helloWorld?a=1 | string
+appQuery | 当前app全名中'?'后字符串，如：a=1 | string
 appParams | appQuery转object,如：{a:1} | object
 
 ### action代码
 
-action纯函数化，定义component事件需要处理的一些行为方法，示例代码如下
+定义component事件需要处理的一些行为方法，示例代码如下
 
 ```javascript
 export function initView(){
@@ -108,7 +77,7 @@ getState | getState方法能取到当前应用的state | function
 
 ### reducer代码
 
-reducer纯函数化，定义修改状态的方法，由action调用
+定义修改状态的方法，由action调用
 
 它里面所有对外的方法第一个参数是state表示旧状态，返回值是新状态
 
