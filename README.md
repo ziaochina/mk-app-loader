@@ -1,6 +1,10 @@
 # mk-app-loader
 
-## 特点
+## mk简介
+
+mk = monkey king = 齐天大圣
+
+## mk-app-loader特点
 
 - 这是一个基于react, redux, immutable的开源项目  
 - 简化原生redux实现状态管理的过程
