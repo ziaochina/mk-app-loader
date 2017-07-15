@@ -1,23 +1,21 @@
-import {
-	config,
-	start
-} from 'xr-app-loader'
+import { config, start } from 'mk-app-loader'
+import about from './apps/about'
+import helloWorld from './apps/helloWorld'
+import example from './apps/example'
 
-import _src_apps_about_src from './src/apps/about/src/index.app'
-import _src_apps_helloWorld_src from './src/apps/helloWorld/src/index.app'
-import _src from './src/index.app'
+const apps = {
+	[about.name]: about,
+	[helloWorld.name]: helloWorld,
+	[example.name]: example
+}
 
 config({
-	apps: {
-		[_src_apps_about_src.name]: _src_apps_about_src,
-		[_src_apps_helloWorld_src.name]: _src_apps_helloWorld_src,
-		[_src.name]: _src
-	},
-	middlewares:[], //redux中间件
-	actionInjections:{},//action注入
-	reducerInjections:{},//reducer注入
-	targetDomId:'app', 
-	startAppName:'example'
+	apps,
+	middlewares: [], //redux中间件
+	actionInjections: {},//action注入
+	reducerInjections: {},//reducer注入
+	targetDomId: 'app',
+	startAppName: 'example'
 })
 
 start()

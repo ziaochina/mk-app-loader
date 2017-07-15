@@ -1,4 +1,4 @@
-class action{
+class action {
 	initView = () => {
 		return injections => {
 			injections.reduce('initView')
@@ -6,7 +6,6 @@ class action{
 	}
 }
 
-
-export default function creator(option){
+export default function creator(option) {
 	return new action()
 }

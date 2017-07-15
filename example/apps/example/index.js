@@ -1,11 +1,10 @@
-module.exports = {
-	name: 'example',
-	version: '0.0.1',
-	description: 'example',
-	author: '',
+export default {
+	name: "example",
+	version: "1.0.0",
+	description: "example",
 	load: (cb) => {
 		require.ensure([], require => {
 			cb(require('./component'), require('./action'), require('./reducer'))
-		}, 'example')
+		}, "example")
 	}
 }

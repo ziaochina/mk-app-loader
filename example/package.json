@@ -1,18 +1,17 @@
 {
   "name": "example",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "example",
   "scripts": {
-    "compile": "xr-tools app --compile",
-    "start": "webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8089 --host 0.0.0.0",
+    "start": "NODE_ENV=production webpack-dev-server --inline --progress --colors --watch --compress --content-base ./dist  --port 8089 --host 0.0.0.0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "liujian zhang",
   "license": "MIT",
   "dependencies": {
+    "mk-app-loader": "^1.0.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "xr-app-loader": "^1.0.27"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

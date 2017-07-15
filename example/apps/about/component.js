@@ -1,9 +1,6 @@
-import React, {
-	Component
-} from 'react'
+import React, { Component } from 'react'
 
-export default class helloWorldComponent extends Component {
-
+export default class aboutComponent extends Component {
 	componentDidMount() {
 		this.props.initView()
 	}

@@ -1,17 +1,12 @@
-import {
-	Map
-} from 'immutable'
+import { Map } from 'immutable'
 
-
-class reducer{
+class reducer {
 	initView = (state = Map()) => {
 		return state.set('text', '这是about app!')
 	}
-
 }
 
-
-export default function creator(option){
+export default function creator(option) {
 	return new reducer(option)
 }
 
