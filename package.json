@@ -1,11 +1,11 @@
 {
   "name": "mk-app-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mk-app-loader",
   "main": "./lib/index",
   "scripts": {
-    "build": "NODE_ENV=production webpack --output-filename xr-app-loader.js",
-    "build-min": "NODE_ENV=production COMPRESS=1 webpack --output-filename xr-app-loader.min.js",
+    "build": "export NODE_ENV=production && webpack --output-filename xr-app-loader.js",
+    "build-min": "export NODE_ENV=production COMPRESS=1 && webpack --output-filename xr-app-loader.min.js",
     "compile": "babel -d lib/ src/",
     "commit": "git add . && git commit -m 'zlj' &&  git push -u origin master",
     "test": "echo \"Error: no test specified\" && exit 1"
