@@ -30,8 +30,8 @@ function loadApp(state, {
     if (!state.has(fullName)) {
         state = state.set(fullName, Map())
 
-        const actionInstance = action({ appInfo, fullName }),
-            reducerInstance = reducer({ appInfo, fullName }),
+        const actionInstance = typeof action == 'function' ? action({ appInfo, fullName }) : action,
+            reducerInstance = typeof reducer == 'function' ? reducer({ appInfo, fullName }) : reducer,
             container = createReduxConnector(
                 component,
                 wrapMapStateToProps(fullName),
