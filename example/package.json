@@ -9,7 +9,7 @@
   "author": "liujian zhang",
   "license": "MIT",
   "dependencies": {
-    "mk-app-loader": "^1.0.0",
+    "mk-app-loader": "^1.0.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
