@@ -58,10 +58,10 @@ class AppLoader extends React.Component {
 		if (ReduxConnector) {
 			return (
 				<ReduxConnector
+					store={this.context.store}
 					{...other}
 					payload={payload}
 					key={fullName}
-					store={this.context.store}
 				/>
 			)
 
