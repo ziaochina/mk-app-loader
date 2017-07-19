@@ -10,7 +10,7 @@ export default function wrapMapStateToProps(fullName) {
 			appFullName: parsedName.fullName,
 			appQuery: parsedName.query,
 			appParams: parsedName.params,
-			payload: parsedName.query !== '' ? state.getIn([parsedName.name, parsedName.query]) : state.get(parsedName.name)
+			payload: state.get(parsedName.fullName)
 		}
 	}
 }
