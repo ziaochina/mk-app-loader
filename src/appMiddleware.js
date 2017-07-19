@@ -34,7 +34,7 @@ export default (actionInjections, reducerInjections) => (store) => {
 				})
 			}
 
-			const getStateByApp = () => query !== '' ? getState().getIn([name, query]) : getState().get(name)
+			const getStateByApp = () => getState().get(fullName)
 			const injections = {
 				currentApp: {
 					fullName,
