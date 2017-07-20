@@ -1,6 +1,6 @@
 import appFactory from './appFactory'
 
-var _options
+var _options = {}
 
 function config(options) {
 	Object.assign(_options, options)
