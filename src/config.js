@@ -1,12 +1,11 @@
 import appFactory from './appFactory'
 
-var _option
+var _options
 
-//option
-function config(option) {
-	_option = option
+function config(options) {
+	Object.assign(_options, options)
 }
 
-config.get = () => _option
+config.current = _options
 
 export default config

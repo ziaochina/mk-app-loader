@@ -10,7 +10,7 @@ import config from './config'
 import appFactory from './appFactory'
 
 export default function start() {
-	const currentConfig = config.get()
+	const currentConfig = config.current
 
 	appFactory.registerApps(currentConfig.apps)
 
