@@ -57,23 +57,29 @@ export default (actionInjections, reducerInjections) => (store) => {
 			}
 
 		} else if (action.type && action.type == '@@loadApp') {
-			const fullName = action.payload.fullName,
-				parsedName = parseName(fullName),
-				appInfo = appFactory.getApp(parsedName.name)
+			try {
+				const fullName = action.payload.fullName,
+					parsedName = parseName(fullName),
+					appInfo = appFactory.getApp(parsedName.name)
 
 
-			appInfo.load((component, action, reducer) => {
-				return next({
-					type: '@@loadAppReal',
-					payload: {
-						fullName,
-						appInfo,
-						component,
-						action,
-						reducer
-					}
+				appInfo.load((component, action, reducer) => {
+					return next({
+						type: '@@loadAppReal',
+						payload: {
+							fullName,
+							appInfo,
+							component,
+							action,
+							reducer
+						}
+					})
 				})
-			})
+			}
+			catch (e) {
+				console.error(e)
+				return next(action)
+			}
 
 		} else {
 			return next(action)
