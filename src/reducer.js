@@ -83,6 +83,7 @@ function reduce(state, {
     injectFunsForReducer
 }) {
 
+    var startDate = new Date()
     var oldState = state.get(fullName)
     var newState = reducer[type].apply(this, [oldState].concat(payload))
 
@@ -90,17 +91,21 @@ function reduce(state, {
         newState = newState(injectFunsForReducer)
     }
 
-    if(window.__mk_record_action__ === true){
+    if (window.__mk_record_action__ === true) {
         window.__mk_actions__ = window.__mk_actions__ || []
+        var endDate = new Date()
         window.__mk_actions__.unshift({
             appFullName: fullName,
             reduceMethod: type,
-            payload, 
+            payload,
             oldState,
-            newState
+            newState,
+            startTime: startDate.getHours() + ':' + startDate.getMinutes() + ':' + startDate.getSeconds() + '.' + startDate.getMilliseconds(),
+            endTime: endDate.getHours() + ':' + endDate.getMinutes() + ':' + endDate.getSeconds() + '.' + endDate.getMilliseconds(),
+            elapsedTime: Math.abs((startDate.getTime() - endDate.getTime()))//(1000*60*60*24)
         })
-    }else{
-        if(window.__mk_actions__)
+    } else {
+        if (window.__mk_actions__)
             window.__mk_actions__ = undefined
     }
 
