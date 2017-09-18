@@ -1,6 +1,6 @@
 {
   "name": "mk-app-loader",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "mk-app-loader",
   "main": "./lib/index",
   "scripts": {

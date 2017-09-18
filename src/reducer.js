@@ -89,5 +89,20 @@ function reduce(state, {
     if (typeof newState === "function") {
         newState = newState(injectFunsForReducer)
     }
+
+    if(window.__mk_record_action__ === true){
+        window.__mk_actions__ = window.__mk_actions__ || []
+        window.__mk_actions__.unshift({
+            appFullName: fullName,
+            reduceMethod: type,
+            payload, 
+            oldState,
+            newState
+        })
+    }else{
+        if(window.__mk_actions__)
+            window.__mk_actions__ = undefined
+    }
+
     return state.set(fullName, newState)
 }

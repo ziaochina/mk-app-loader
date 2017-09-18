@@ -15,6 +15,8 @@ class appFactory {
             ...this.apps,
             ...apps
         }
+
+        window.__mk_apps__ = this.apps
     }
 
     getApp(name) {
