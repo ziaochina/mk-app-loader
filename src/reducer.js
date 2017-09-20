@@ -22,6 +22,7 @@ export default function (state = Map(), {
 
 function loadApp(state, {
     fullName,
+    prevFullName,
     appInfo,
     component = {},
     action = {},
@@ -47,6 +48,10 @@ function loadApp(state, {
             reducer: reducerInstance,
             container
         }))
+    }
+
+    if (prevFullName && prevFullName != fullName) {
+        state = clearAppState(state, { fullName: prevFullName })
     }
 
     return state

@@ -1,8 +1,9 @@
-export function loadApp(fullName) {
+export function loadApp(fullName, prevFullName) {
 	return {
 		type: '@@loadApp',
 		payload: {
-			fullName
+			fullName,
+			prevFullName
 		}
 	}
 }

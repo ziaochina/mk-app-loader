@@ -59,6 +59,7 @@ export default (actionInjections, reducerInjections) => (store) => {
 		} else if (action.type && action.type == '@@loadApp') {
 			try {
 				const fullName = action.payload.fullName,
+					prevFullName = action.payload.prevFullName,
 					parsedName = parseName(fullName),
 					appInfo = appFactory.getApp(parsedName.name)
 
@@ -71,7 +72,8 @@ export default (actionInjections, reducerInjections) => (store) => {
 							appInfo,
 							component,
 							action,
-							reducer
+							reducer,
+							prevFullName
 						}
 					})
 				})

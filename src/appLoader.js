@@ -28,7 +28,10 @@ class AppLoader extends React.Component {
 		} = nextProps
 
 		if (!payload.get('@@require')) {
-			this.props.loadApp(fullName)
+			this.props.loadApp(fullName, this.props.name)
+		}
+		else if (this.props.name != nextProps.name) {
+			this.props.clearAppState(this.props.name)
 		}
 	}
 
