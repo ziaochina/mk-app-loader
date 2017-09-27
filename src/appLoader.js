@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from './action'
 import parseName from './parseName'
+import PropTypes from 'prop-types'
 
 class AppLoader extends React.Component {
 	constructor(props, context) {
@@ -75,7 +76,7 @@ class AppLoader extends React.Component {
 }
 
 AppLoader.contextTypes = {
-	store: React.PropTypes.object
+	store: PropTypes.object
 }
 
 export default connect((state, props) => {
