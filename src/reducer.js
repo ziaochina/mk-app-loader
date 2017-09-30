@@ -62,7 +62,7 @@ function clearAppState(state, {
 }) {
 
     if (!state.has(fullName))
-        return this.state
+        return state
 
     const ks = []
     state.get(fullName).mapKeys(k => {
