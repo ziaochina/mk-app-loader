@@ -37,7 +37,8 @@ module.exports = {
         "react-dom": "ReactDom",
         "redux": "Redux",
         "react-redux": "ReactRedux",
-        "immutable": 'Immutable'
+        "immutable": 'Immutable',
+        "prop-types": "PropTypes"
     },
 
     module: {
