@@ -3,14 +3,14 @@ class appFactory {
         this.apps = {}
     }
 
-    registerApp(name, app) {
+    registerApp = (name, app) => {
         if (this.apps[name])
             throw `已经注册过这个app，不能重复注册. name: ${name}`
 
         this.apps[name] = app
     }
 
-    registerApps(apps) {
+    registerApps = (apps) => {
         this.apps = {
             ...this.apps,
             ...apps
@@ -19,7 +19,7 @@ class appFactory {
         window.__mk_apps__ = this.apps
     }
 
-    getApp(name) {
+    getApp = (name) => {
         var app = this.apps[name]
 
         if (!app) {
@@ -28,7 +28,7 @@ class appFactory {
         return app
     }
 
-    getApps() {
+    getApps = () => {
         return this.apps
     }
 
