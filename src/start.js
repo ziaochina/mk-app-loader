@@ -20,14 +20,22 @@ export default function start() {
 		mw = mw.concat(currentConfig.middlewares)
 
 	const store = createStore(reducer, Map(), applyMiddleware(...mw))
-	
+
 	window.reduxStore = store
 	window.__mk_store__ = store
 
+	if (!currentConfig.rootWrapper) {
+		currentConfig.rootWrapper = (child) => {
+			return child
+		}
+	}
+
 	render(
-		<Provider store={store}>
-			<AppLoader name={currentConfig.startAppName} />
-		</Provider>,
+		currentConfig.rootWrapper((
+			<Provider store={store}>
+				<AppLoader name={currentConfig.startAppName} />
+			</Provider>
+		)),
 		document.getElementById(currentConfig.targetDomId)
 	)
 }
