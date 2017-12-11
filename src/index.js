@@ -8,7 +8,7 @@ import start from './start'
 import appFactory from './appFactory'
 import init from './init'
 
-const {registerApp, registerApps} = appFactory
+const {registerApp, registerApps, getApp, getApps} = appFactory
 
 const loadApp = (name, props)=>{
 	return <AppLoader {...props} name={name} />
@@ -23,5 +23,7 @@ export {
 	start,
 	registerApp,
 	registerApps,
+	getApp,
+	getApps,
 	loadApp
 }
