@@ -1,3 +1,5 @@
+import config from './config'
+
 class appFactory {
     constructor() {
         this.apps = {}
@@ -21,6 +23,15 @@ class appFactory {
 
     getApp = (name) => {
         var app = this.apps[name]
+
+        if(app)
+            return app
+
+        if(config.current.requireFn 
+            && config.current.appsMap
+            && config.current.appsMap[name]
+        )
+            return 
 
         if (!app) {
             throw `没有注册这个app. name: ${name}`

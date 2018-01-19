@@ -9,7 +9,9 @@ import reducer from './reducer'
 import config from './config'
 import appFactory from './appFactory'
 
-export default function init() {
+export default function init(option) {
+	config(option)
+	
     const currentConfig = config.current
     
     if(currentConfig.apps)
