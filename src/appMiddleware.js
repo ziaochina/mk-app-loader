@@ -97,7 +97,9 @@ export default (actionInjections, reducerInjections) => (store) => {
 					&& config.current.appsMap
 					&& config.current.appsMap[parsedName.name]){
 					let appName = parsedName.name,
-						url = config.current.appsMap[parsedName.name],
+						val = config.current.appsMap[parsedName.name],
+						url = (typeof val) == 'string' ? val : val.asset,
+						options =  typeof val == 'string' ? {}: val.options,
 						pub = url.indexOf('/') ? url.substr(0, url.lastIndexOf('/') + 1) : '',
 						cssUrl = `css!${url.replace(/(\.js)|(\.min\.js)/, '.css')}`
 					
@@ -108,7 +110,10 @@ export default (actionInjections, reducerInjections) => (store) => {
 							appInfo = args[0]
 							const apps = {...appFactory.getApps(), [appInfo.name]:appInfo}
 							appFactory.registerApp(appInfo.name, appInfo)
-							appConfig(apps, { "*": { apps: apps }})
+							appConfig(apps, { 
+								"*": { apps: apps },
+								[appName]: options
+							})
 
 							appInfo.load((component, action, reducer) => {
 								return next({
