@@ -33,6 +33,10 @@ class appFactory {
         )
             return 
 
+        if(config.current.requireFn
+            && config.current.loadAppInfoFn)
+            return
+
         if (!app) {
             throw `没有注册这个app. name: ${name}`
         }

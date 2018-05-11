@@ -131,6 +131,55 @@ export default (actionInjections, reducerInjections) => (store) => {
 						}
 					})
 				}
+				else if(config.current.requireFn
+					&& config.current.loadAppInfoFn
+				){
+					config.current.loadAppInfoFn(parsedName.name).then(ret=>{
+						if(ret){
+							let appName = parsedName.name,
+							val = ret,
+							url = (typeof val) == 'string' ? val : val.asset,
+							options =  typeof val == 'string' ? {}: val.options,
+							pub = url.indexOf('/') ? url.substr(0, url.lastIndexOf('/') + 1) : '',
+							cssUrl = `css!${url.replace(/(\.js)|(\.min\.js)/, '.css')}`
+						
+							window[`__pub_${appName}__`] = pub
+							
+							config.current.requireFn([url, cssUrl], (...args) => {
+								if(args.length > 0){
+									appInfo = args[0]
+									const apps = {...appFactory.getApps(), [appInfo.name]:appInfo}
+									appFactory.registerApp(appInfo.name, appInfo)
+									appConfig(apps, { 
+										"*": { apps: apps },
+										[appName]: options
+									})
+		
+									appInfo.load((component, action, reducer) => {
+										return next({
+											type: '@@loadAppReal',
+											payload: {
+												fullName,
+												appInfo,
+												component,
+												action,
+												reducer,
+												prevFullName
+											}
+										})
+									})
+								}
+							})
+						}
+						else{
+							console.error(`加载应用${parsed.name}失败`)
+						}
+					})
+				}
+				else{
+					console.error(`加载应用${parsed.name}失败`)
+				}
+
 			}
 			catch (e) {
 				console.error(e)
