@@ -6,8 +6,8 @@ class appFactory {
     }
 
     registerApp = (name, app) => {
-        if (this.apps[name])
-            throw `已经注册过这个app，不能重复注册. name: ${name}`
+        if (this.apps[name]) return
+        //throw `已经注册过这个app，不能重复注册. name: ${name}`
 
         this.apps[name] = app
     }
