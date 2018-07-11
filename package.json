@@ -1,6 +1,6 @@
 {
   "name": "mk-app-loader",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "mk-app-loader",
   "main": "./lib/index",
   "scripts": {
@@ -32,12 +32,13 @@
     "babel-plugin-add-module-exports": "*",
     "babel-plugin-transform-decorators-legacy": "*",
     "babel-plugin-transform-runtime": "*",
-    "babel-preset-es2015": "*",
+    "babel-preset-env": "*",
     "babel-preset-react": "*",
     "babel-preset-stage-0": "*",
     "cross-env": "*",
     "webpack": "*",
-    "webpack-cli": "^3.0.8"
+    "webpack-cli": "*",
+    "uglifyjs-webpack-plugin": "*"
   },
   "dependencies": {
     "immutable": "*",
@@ -45,7 +46,7 @@
     "react": "*",
     "react-dom": "*",
     "react-redux": "*",
-    "redux": "*",
-    "uglifyjs-webpack-plugin": "^1.2.7"
+    "redux": "*"
+   
   }
 }
