@@ -1,6 +1,6 @@
 {
   "name": "mk-app-loader",
-  "version": "1.0.26",
+  "version": "2.0.0",
   "description": "mk-app-loader",
   "main": "./lib/index",
   "scripts": {
@@ -26,24 +26,26 @@
   "author": "Liujian Zhang <ziaochina@gmail.com> (http://github.com/ziaochina)",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "cross-env": "^5.1.1",
-    "webpack": "^3.10.0"
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-plugin-add-module-exports": "*",
+    "babel-plugin-transform-decorators-legacy": "*",
+    "babel-plugin-transform-runtime": "*",
+    "babel-preset-es2015": "*",
+    "babel-preset-react": "*",
+    "babel-preset-stage-0": "*",
+    "cross-env": "*",
+    "webpack": "*",
+    "webpack-cli": "^3.0.8"
   },
   "dependencies": {
-    "immutable": "^3.8.2",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "immutable": "*",
+    "prop-types": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-redux": "*",
+    "redux": "*",
+    "uglifyjs-webpack-plugin": "^1.2.7"
   }
 }
