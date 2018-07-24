@@ -101,7 +101,9 @@ export default (actionInjections, reducerInjections) => (store) => {
 						url = (typeof val) == 'string' ? val : val.asset,
 						options =  typeof val == 'string' ? {}: val.options,
 						pub = url.indexOf('/') ? url.substr(0, url.lastIndexOf('/') + 1) : '',
-						cssUrl = `css!${url.replace(/(\.js)|(\.min\.js)/, '.css')}`
+						cssUrl = url.indexOf('.min.js') != -1 
+								? `css!${url.replace(/\.min\.js/, '.min.css')}`
+								: `css!${url.replace(/\.js/, '.css')}`
 					
 					window[`__pub_${appName}__`] = pub
 					
@@ -141,7 +143,9 @@ export default (actionInjections, reducerInjections) => (store) => {
 							url = (typeof val) == 'string' ? val : val.asset,
 							options =  typeof val == 'string' ? {}: val.options,
 							pub = url.indexOf('/') ? url.substr(0, url.lastIndexOf('/') + 1) : '',
-							cssUrl = `css!${url.replace(/(\.js)|(\.min\.js)/, '.css')}`
+							cssUrl = url.indexOf('.min.js') != -1 
+								? `css!${url.replace(/\.min\.js/, '.min.css')}`
+								: `css!${url.replace(/\.js/, '.css')}`
 						
 							window[`__pub_${appName}__`] = pub
 							
