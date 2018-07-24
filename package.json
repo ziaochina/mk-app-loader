@@ -1,6 +1,6 @@
 {
   "name": "mk-app-loader",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "mk-app-loader",
   "main": "./lib/index",
   "scripts": {
@@ -36,9 +36,9 @@
     "babel-preset-react": "*",
     "babel-preset-stage-0": "*",
     "cross-env": "*",
+    "uglifyjs-webpack-plugin": "*",
     "webpack": "*",
-    "webpack-cli": "*",
-    "uglifyjs-webpack-plugin": "*"
+    "webpack-cli": "*"
   },
   "dependencies": {
     "immutable": "*",
@@ -47,6 +47,5 @@
     "react-dom": "*",
     "react-redux": "*",
     "redux": "*"
-   
   }
 }
